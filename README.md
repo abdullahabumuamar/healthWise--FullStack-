@@ -30,17 +30,7 @@ Create `healthcare-frontend/.env` (optional) with:
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-### Install
-- Backend:
-  ```
-  cd healthcare-backend
-  npm install
-  ```
-- Frontend:
-  ```
-  cd healthcare-frontend
-  npm install
-  ```
+
 
 ### Run (Development)
 In two terminals:
@@ -72,21 +62,7 @@ Open the app at: `http://localhost:5173`
 - Exercise: `POST /api/exercise/recommendations`
 - Health: `GET /api/health`
 
-Note: Protected endpoints require `Authorization: Bearer <token>`.
 
-### Building for Production
-- Frontend:
-```
-cd healthcare-frontend
-npm run build
-```
-Artifacts are generated under `dist/`.
 
-### Notes
-- Ensure MongoDB is running and `MONGODB_URI` is correct before starting the backend.
-- AI features require Ollama to be running or set valid `OLLAMA_BASE_URL` and `OLLAMA_MODEL`.
-- CORS is configured to allow the frontend origin (`FRONTEND_URL`).
 
-### License
-ISC (see package metadata). Update as needed.
 

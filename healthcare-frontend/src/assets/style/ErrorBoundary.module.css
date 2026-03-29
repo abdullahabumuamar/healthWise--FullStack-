@@ -1,0 +1,111 @@
+.errorBoundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f9fafb;
+}
+
+.content {
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: #ef4444;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px 0;
+}
+
+.message {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.details {
+  margin: 24px 0;
+  text-align: left;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.summary {
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.error {
+  font-size: 12px;
+  color: #dc2626;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--brand);
+  color: #fff;
+}
+
+.button:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(7, 71, 166, 0.3);
+}
+
+.button.secondary {
+  background: #fff;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+}
+
+.button.secondary:hover {
+  background: rgba(7, 71, 166, 0.05);
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 24px;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+  }
+}

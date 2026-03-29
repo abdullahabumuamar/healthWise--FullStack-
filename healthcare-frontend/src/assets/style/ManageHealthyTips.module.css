@@ -1,0 +1,883 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.addButton {
+  background: var(--brand);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.addButton:hover {
+  background: var(--brand-dark);
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.tipCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.tipCard:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.tipCardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.tipCardContent {
+  padding: 16px;
+}
+
+.tipCardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.tipCardActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.editButton,
+.deleteButton {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+.editButton {
+  background: rgba(var(--brand-rgb), 0.1);
+  color: var(--brand);
+  border: 1px solid rgba(var(--brand-rgb), 0.2);
+}
+
+.editButton:hover {
+  background: rgba(var(--brand-rgb), 0.15);
+  border-color: var(--brand);
+}
+
+.deleteButton {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.deleteButton:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #dc2626;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.emptyStateText {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.modalCloseButton {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.modalCloseButton:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.labelWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.labelWithIcon .formLabel {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.tooltipContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.helpIcon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.helpIcon:hover {
+  opacity: 1;
+}
+
+.tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  min-width: 320px;
+  max-width: 400px;
+  animation: tooltipFadeIn 0.2s ease;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tooltipHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  background: #f9fafb;
+  border-radius: 8px 8px 0 0;
+}
+
+.tooltipContent {
+  padding: 16px;
+}
+
+.tooltipContent p {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.tooltipContent p strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.tooltipExample {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border-left: 3px solid var(--brand);
+}
+
+.tooltipExampleLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tooltipExampleText {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #374151;
+  flex-wrap: wrap;
+}
+
+.tooltipExampleText span:first-child {
+  color: #6b7280;
+}
+
+.tooltipArrow {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.tooltipExampleText strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.1);
+}
+
+.formInput::placeholder {
+  color: #9ca3af;
+}
+
+.formTextarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(var(--brand-rgb), 0.1);
+}
+
+.formTextarea::placeholder {
+  color: #9ca3af;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.dropZone {
+  width: 100%;
+  min-height: 200px;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropZone:hover {
+  border-color: var(--brand);
+  background: #f3f4f6;
+}
+
+.dropZoneActive {
+  border-color: var(--brand);
+  background: rgba(var(--brand-rgb), 0.05);
+  border-width: 3px;
+  transform: scale(1.02);
+}
+
+.dropZoneContent {
+  text-align: center;
+  padding: 40px 20px;
+  pointer-events: none;
+}
+
+.dropZoneIcon {
+  color: #9ca3af;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.dropZone:hover .dropZoneIcon,
+.dropZoneActive .dropZoneIcon {
+  color: var(--brand);
+  transform: translateY(-4px);
+}
+
+.dropZoneText {
+  color: #374151;
+}
+
+.dropZoneTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #111827;
+  transition: color 0.3s ease;
+}
+
+.dropZone:hover .dropZoneTitle,
+.dropZoneActive .dropZoneTitle {
+  color: var(--brand);
+}
+
+.dropZoneSubtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+}
+
+.dropZoneHint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 8px 0 0 0;
+}
+
+.imagePreviewContainer {
+  position: relative;
+  margin-top: 0;
+}
+
+.imagePreview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: block;
+}
+
+.removeImageButton {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.removeImageButton:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #dc2626;
+}
+
+.modalFooter {
+  padding: 20px 24px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modalButton {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.modalButtonCancel {
+  background: #fff;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.modalButtonCancel:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.modalButtonPrimary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.modalButtonPrimary:hover {
+  background: var(--brand-dark);
+}
+
+.modalButtonPrimary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tipsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  
+  .modalContent {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .addButton {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .tipsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  
+  .tipCard {
+    border-radius: 10px;
+  }
+  
+  .tipCardImage {
+    height: 180px;
+  }
+  
+  .tipCardContent {
+    padding: 14px;
+  }
+  
+  .tipCardTitle {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .tipCardActions {
+    flex-wrap: wrap;
+  }
+  
+  .editButton,
+  .deleteButton {
+    padding: 6px 12px;
+    font-size: 12px;
+    flex: 1;
+    min-width: 80px;
+  }
+  
+  .emptyState {
+    padding: 40px 16px;
+  }
+  
+  .emptyStateText {
+    font-size: 14px;
+  }
+  
+  /* Modal Responsive */
+  .modalOverlay {
+    padding: 10px;
+  }
+  
+  .modalContent {
+    max-width: 100%;
+    max-height: 95vh;
+    border-radius: 10px;
+  }
+  
+  .modalHeader {
+    padding: 16px 20px;
+  }
+  
+  .modalTitle {
+    font-size: 18px;
+  }
+  
+  .modalBody {
+    padding: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 16px;
+  }
+  
+  .formLabel {
+    font-size: 13px;
+  }
+  
+  .formInput,
+  .formTextarea {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .dropZone {
+    min-height: 160px;
+  }
+  
+  .dropZoneContent {
+    padding: 30px 16px;
+  }
+  
+  .dropZoneTitle {
+    font-size: 16px;
+  }
+  
+  .dropZoneSubtitle {
+    font-size: 13px;
+  }
+  
+  .dropZoneHint {
+    font-size: 11px;
+  }
+  
+  .imagePreview {
+    max-height: 200px;
+  }
+  
+  .modalFooter {
+    padding: 16px 20px;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  
+  .modalButton {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .tooltip {
+    min-width: 280px;
+    max-width: 90vw;
+  }
+  
+  .tooltipHeader {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  
+  .tooltipContent {
+    padding: 12px;
+  }
+  
+  .tooltipContent p {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Manage About Page Specific Styles */
+.sectionGroup {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sectionGroupTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.sectionGroupLast {
+  margin-bottom: 32px;
+  border-bottom: none;
+}
+
+.readOnlyText {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #111827;
+}
+
+.readOnlyTextBold {
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.readOnlyTextWrap {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #111827;
+  white-space: pre-wrap;
+}
+
+.readOnlyTextPlaceholder {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.editActions {
+  display: flex;
+  gap: 12px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.cardContainer {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+  }
+  
+  .tipsGrid {
+    gap: 12px;
+  }
+  
+  .tipCardImage {
+    height: 160px;
+  }
+  
+  .tipCardContent {
+    padding: 12px;
+  }
+
+  .sectionGroup {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+
+  .sectionGroupTitle {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cardContainer {
+    padding: 16px;
+  }
+
+  .editActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .editActions .modalButton {
+    width: 100%;
+  }
+
+  .tipCardTitle {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .editButton,
+  .deleteButton {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .emptyState {
+    padding: 32px 12px;
+  }
+  
+  .emptyStateText {
+    font-size: 13px;
+  }
+  
+  .modalHeader {
+    padding: 14px 16px;
+  }
+  
+  .modalTitle {
+    font-size: 16px;
+  }
+  
+  .modalBody {
+    padding: 16px;
+  }
+  
+  .formGroup {
+    margin-bottom: 14px;
+  }
+  
+  .formLabel {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .formInput,
+  .formTextarea {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .dropZone {
+    min-height: 140px;
+  }
+  
+  .dropZoneContent {
+    padding: 24px 12px;
+  }
+  
+  .dropZoneTitle {
+    font-size: 14px;
+  }
+  
+  .dropZoneSubtitle {
+    font-size: 12px;
+  }
+  
+  .dropZoneHint {
+    font-size: 10px;
+  }
+  
+  .imagePreview {
+    max-height: 180px;
+  }
+  
+  .removeImageButton {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .modalFooter {
+    padding: 14px 16px;
+  }
+  
+  .modalButton {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .tooltip {
+    min-width: 260px;
+  }
+  
+  .tooltipContent p {
+    font-size: 11px;
+  }
+}
+

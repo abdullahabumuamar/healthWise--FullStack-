@@ -1,0 +1,28 @@
+.container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.container > * {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+  
+  .container > * {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
+

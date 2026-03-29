@@ -1,0 +1,266 @@
+.hero { text-align: center; padding: 72px 0 32px; }
+.hero h1 { font-size: 46px; margin: 0 0 8px; }
+.hero p { font-size: 20px; color: #4b5563; margin: 0 0 20px; }
+.cta { background: var(--brand); color: #fff; padding: 14px 20px; border: 0; border-radius: 10px; font-weight: 700; cursor: pointer; display: inline-block; }
+.cta:hover { background: var(--brand-dark); }
+.row { display: flex; align-items: center; justify-content: space-between; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 280px)); gap: 16px; margin: 24px 0 8px; }
+.card { position: relative; background: #000; border: 1px solid #e5e7eb; border-radius: 12px; min-height: 200px; overflow: hidden; width: 100%; cursor: pointer; }
+/* dark gradient overlay for readability */
+.card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 70%); pointer-events: none; z-index: 1; }
+
+/* LIVING HEALTHY card content */
+.cardImage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 0; transition: transform 0.3s ease-in-out; }
+.card:hover .cardImage { transform: scale(1.1); }
+.cardTitle { position: absolute; left: 12px; right: 12px; bottom: 12px; color: #ffffff !important; font-size: 14px; font-weight: 900; text-align: center; letter-spacing: .2px; text-shadow: 0 2px 4px rgba(0,0,0,0.65), 0 0 1px rgba(0,0,0,0.5); z-index: 2; }
+
+/* Articles Section Styles */
+.articlesGrid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 380px)); 
+  gap: 24px; 
+  margin: 24px 0 8px; 
+}
+
+.articleCard { 
+  background: #fff; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 12px; 
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+  transition: all 0.2s ease-in-out; 
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleCard:hover { 
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1); 
+  transform: translateY(-2px); 
+}
+
+.articleCardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.articleContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.articleDate { 
+  font-size: 13px; 
+  color: #6b7280; 
+  font-weight: 500; 
+  margin-bottom: 12px;
+  display: block;
+}
+
+.articleTitle { 
+  font-size: 20px; 
+  font-weight: 600; 
+  color: #1f2937; 
+  margin: 0 0 12px 0; 
+  line-height: 1.4; 
+}
+
+.articleExcerpt { 
+  font-size: 15px; 
+  color: #6b7280; 
+  line-height: 1.6; 
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.readMoreBtn { 
+  background: transparent; 
+  color: var(--brand); 
+  border: none; 
+  padding: 0;
+  font-size: 14px; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: all 0.15s ease-in-out;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.readMoreBtn:hover { 
+  color: var(--brand-dark);
+  text-decoration: underline;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.articlesSection {
+  margin-top: 32px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 48px 0 24px;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  
+  .articlesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 32px 16px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .cta {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+  
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 20px 0 8px;
+  }
+  
+  .card {
+    min-height: 180px;
+  }
+  
+  .cardTitle {
+    font-size: 13px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .articlesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 20px 0 8px;
+  }
+  
+  .articleCard {
+    border-radius: 10px;
+  }
+  
+  .articleCardImage {
+    height: 180px;
+  }
+  
+  .articleContent {
+    padding: 16px;
+  }
+  
+  .articleTitle {
+    font-size: 18px;
+  }
+  
+  .articleExcerpt {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .articlesSection {
+    margin-top: 24px;
+  }
+  
+  .emptyState {
+    padding: 40px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 24px 12px 16px;
+  }
+  
+  .hero h1 {
+    font-size: 24px;
+  }
+  
+  .hero p {
+    font-size: 14px;
+  }
+  
+  .cta {
+    padding: 10px 16px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .cards {
+    gap: 12px;
+  }
+  
+  .card {
+    min-height: 160px;
+  }
+  
+  .cardTitle {
+    font-size: 12px;
+  }
+  
+  .articlesGrid {
+    gap: 12px;
+  }
+  
+  .articleCardImage {
+    height: 160px;
+  }
+  
+  .articleContent {
+    padding: 12px;
+  }
+  
+  .articleTitle {
+    font-size: 16px;
+  }
+  
+  .articleExcerpt {
+    font-size: 13px;
+  }
+}
+

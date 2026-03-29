@@ -1,0 +1,6 @@
+.wrap { min-height: calc(100vh - 120px); display: flex; flex-direction: column; }
+.content { flex: 1 1 auto; display: flex; flex-direction: column; }
+.pageHeader { margin-bottom: 2rem; }
+.pageHeader h1 { font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem; }
+.pageHeader p { color: #6b7280; }
+

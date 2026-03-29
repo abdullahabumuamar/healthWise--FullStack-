@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Lamp with Thin Medical Cross (+) -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="800px"
+  height="800px"
+  viewBox="0 0 32 32"
+  stroke="#000000"
+  fill="none"
+  stroke-linejoin="round"
+  stroke-miterlimit="10"
+  stroke-width="2">
+
+  <!-- Lamp -->
+  <g>
+    <path d="M17,31h-2c-1.105,0-2-0.895-2-2v-2h6v2C19,30.105,18.105,31,17,31z"/>
+    <path d="M23,16L23,16c0,2.518-1.186,4.889-3.2,6.4L19,23v4h-6v-4l-0.8-0.6
+      C10.186,20.889,9,18.518,9,16v0c0-3.866,3.134-7,7-7h0C19.866,9,23,12.134,23,16z"/>
+    <line x1="16" y1="6" x2="16" y2="2"/>
+    <line x1="8.93" y1="8.929" x2="6.101" y2="6.1"/>
+    <line x1="23.07" y1="8.929" x2="25.899" y2="6.1"/>
+    <line x1="6" y1="16" x2="2" y2="16"/>
+    <line x1="26" y1="16" x2="30" y2="16"/>
+  </g>
+
+  <!-- Thinner Health Cross (+) -->
+  <g fill="#000000ff" stroke="none">
+    <!-- vertical bar -->
+    <rect x="14.4" y="13" width="3.2" height="8" rx="0.3" ry="0.3"/>
+    <!-- horizontal bar -->
+    <rect x="12" y="15.4" width="8" height="3.2" rx="0.3" ry="0.3"/>
+  </g>
+
+</svg>
+
